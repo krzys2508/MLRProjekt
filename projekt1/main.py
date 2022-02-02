@@ -41,7 +41,7 @@ model.compile (optimizer='adam',loss='sparse_categorical_crossentropy', metrics=
 
 # model.compile (optimizer='adam',loss='sparse_categorical_crossentropy', metrics=['accuracy'])
 train_hist = model.fit(train_images,train_labels, epochs=100)
-model.save()
+model.save("model.h5")
 def plot_acc(hist):
     plt.title("Accuracy History")
     plt.plot(hist.history['accuracy'])
@@ -62,4 +62,4 @@ plot_acc(train_hist)
 plot_loss(train_hist)
 
 test_loss, test_acc = model.evaluate(test_images,test_labels,verbose =0)
-print('Max training accuracy: ',max(train_hist.history['accuracy']), ' Test accuracy: ', test_acc)
+print('Max trained accuracy: ',max(train_hist.history['accuracy']), ' Untrained accuracy: ', test_acc)
